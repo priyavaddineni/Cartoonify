@@ -7,7 +7,7 @@ from django.core.files.storage import FileSystemStorage
 from cv2 import cv2
 
 def button(request):
-    return render(request,'home.html')
+    return render(request,'index.html')
 
 
 def external(request):
@@ -31,7 +31,7 @@ def external(request):
     shutil.copy('C://Users//saipr//Desktop//project//project//media//temp.png', 'C://Users//saipr//Desktop//project//project//static//media')
 
     
-    return render(request,'home.html',{'raw_url':templateurl,'edit_url':stri})
+    return render(request,'index.html',{'raw_url':templateurl,'edit_url':stri})
 
 def take_picture(request):
     
@@ -45,4 +45,4 @@ def take_picture(request):
         
         
 
-    return render(request,'home.html',{'edit_url':stri})
+    return render(request,'index.html',{'edit_url':stri})
