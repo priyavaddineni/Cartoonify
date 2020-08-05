@@ -23,12 +23,12 @@ def external(request):
     print("tempurl",templateurl)
 
     
-    image = run([sys.executable,'C://Users//saipr//Desktop/project//project//scr.py',str(fileurl),str(filename)],shell=False,stdout=PIPE)
+    image = run([sys.executable,'//project//project//scr.py',str(fileurl),str(filename)],shell=False,stdout=PIPE)
     
     print(image.stdout)
     
     stri=str(image.stdout, 'utf-8')
-    shutil.copy('C://Users//saipr//Desktop//project//project//media//temp.png', 'C://Users//saipr//Desktop//project//project//static//media')
+    shutil.copy('//project//project//media//temp.png', 'C://Users//saipr//Desktop//project//project//static//media')
 
     
     return render(request,'index.html',{'raw_url':templateurl,'edit_url':stri})
@@ -36,12 +36,12 @@ def external(request):
 def take_picture(request):
     
     if request.method == 'POST':
-        image = run([sys.executable,'C://Users//saipr//Desktop/project//project//take.py'],shell=False,stdout=PIPE)
+        image = run([sys.executable,'//project//project//take.py'],shell=False,stdout=PIPE)
         print(image.stdout)
         stri=str(image.stdout, 'utf-8')
         print(stri)
 
-        shutil.copy('C://Users//saipr//Desktop//project//project//media//temp.png', 'C://Users//saipr//Desktop//project//project//static//media')
+        shutil.copy('//project//project//media//temp.png', '//project//project//static//media')
         
         
 
