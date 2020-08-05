@@ -14,7 +14,6 @@ edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_
 color = cv2.medianBlur(img, 19) 
 cartoon = cv2.bitwise_and(color, color, mask=edges) 
 
-#img.rotate(90).convert("LA").save(image_save_path)
-#cartoon.save(image_save_path)
+
 cv2.imwrite(image_save_path,cartoon)
 print("/media/temp.png")
