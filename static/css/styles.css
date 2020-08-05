@@ -1,0 +1,57 @@
+body{
+  text-align: center;
+}
+  .colored-section {
+    background-color: #a5c9da;
+    color: #fff;
+    height: 100px;
+    width: 100%;
+  }
+
+  
+
+  p {
+      color: #ff4c68;
+      
+  }
+  h1{
+    font-family: 'Satisfy', cursive;
+    padding-left: 50px;
+      padding-top: 20px;
+    
+  }
+  h3{
+    font-family: 'Sacramento', cursive;
+    font-size: 75px;
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  h5{
+    font-family: 'Sacramento', cursive;
+    font-size: 50px;
+    text-align: center;
+    
+  }
+
+  .class1{
+    width: 100%;
+  }
+  
+
+  .btn{
+    margin-left: 20px;
+  }
+
+  #custom{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #download{
+    margin-top: 30px;
+  }
+
+  .upload{
+    padding-top: 60px;
+  }
