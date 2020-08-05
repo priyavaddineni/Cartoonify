@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Cartoonify</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Satisfy&display=swap" rel="stylesheet">
+
+  {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
+
+  
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="colored-section" id="title">
+      
+      <div class="row">
+        <div class="col-lg-2">
+          <h1>Cartoonify </h1>
+        </div>
+        </div>
+      </section>
+    <section class="white-section">
+      <h3><em>Cartoonify</em> turns your photo into a cartoon drawing </h3>
+      <br><br>
+      <div class="row">
+        <div class=" class1">
+          <h5>Upload any image to try it out and download..</h5>
+        </div>
+      </div>
+      
+            
+
+            
+          <form action="/external/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+              <div class="upload" style="text-align: center;">
+            
+            <input type="file" id="real-file" name="image" hidden="hidden">
+            <button type="button" id="custom-button" class="btn btn-dark btn-lg download-button" name="image"><i class="fas fa-arrow-circle-up"></i> Upload</button>
+            <input type="submit" id = "real-submit" value="Execute External Python Script" hidden="hidden">
+
+            <button type="button" id="custom" class="btn btn-outline-dark btn-lg download-button"> Submit</button>
+            
+          </div>
+          </form>
+          <form action="/take_picture/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="upload" style="text-align: center;"></div>
+            
+            <input type="submit" id = "submit_take" value="Execute Script" name="take" hidden="hidden">
+            <button type="button" id="pic" class="btn btn-outline-dark btn-lg download-button" name="take"> Take Picture</button>
+            
+          </div>
+
+            </form>
+            {% if raw_url or edit_url %}
+            <div style="text-align: center;">
+              <a href="{% static 'media/temp.png' %}" download="GFG"> 
+                <button type="button" id="download" class="btn btn-outline-dark btn-lg download-button"><i class="fa fa-download"></i>Download</button> 
+                </a> 
+            </div>
+            
+            {% endif %}
+  
+      
+    </section>
+
+    
+  
+    
+
+    <script type="text/javascript">
+      const realFileBtn = document.getElementById("real-file");
+      const customBtn = document.getElementById("custom-button");
+      const custom = document.getElementById("custom");
+      const realsubmitBtn = document.getElementById("real-submit");
+      
+
+      customBtn.addEventListener("click", function() {
+          realFileBtn.click();
+      });
+
+      custom.addEventListener("click", function() {
+        realsubmitBtn.click();
+      });
+
+      
+      const btn2 = document.getElementById("submit_take");
+      const btn3 = document.getElementById("pic");
+      
+
+      btn3.addEventListener("click", function() {
+        btn2.click();
+      });
+    </script>
+</body>
+</html>
